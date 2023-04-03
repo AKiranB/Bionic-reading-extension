@@ -1,0 +1,13 @@
+{
+  "name": "Bionic Reading",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Implement bionic reading on web pages",
+  "permissions": ["tabs", "<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
