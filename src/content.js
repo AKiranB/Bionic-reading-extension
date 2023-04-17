@@ -11,6 +11,14 @@ function isBold(element) {
 
 const tags = ["P", "SIDE", "SPAN", "H3", "H4", "H5", "H6"];
 
+function boldWords(sliceLength, word) {
+  let slicedChars = word.slice(0, sliceLength);
+  const restWord = word.slice(sliceLength);
+  let boldChars = `<b style="font-weight: 600;">${slicedChars}</b>`;
+  const result = boldChars + restWord;
+  return result;
+}
+
 for (let element of elements) {
   if (element.innerText && tags.includes(element.tagName) && !isBold(element)) {
     const wordArray = element.innerText.split(" ");
@@ -18,16 +26,14 @@ for (let element of elements) {
 
     for (let i = 0; i < wordArray.length; i++) {
       if (wordArray[i].length > 3) {
-        let firstThreeChars = wordArray[i].slice(0, 3);
-        const restWord = wordArray[i].slice(3);
-        let boldChars = `<b style="font-weight: 600;">${firstThreeChars}</b>`;
-        const result = boldChars + restWord;
+        const word = wordArray[i];
+        const result = boldWords(3, word);
+
         resultArray.push(result);
       } else if (wordArray[i].length <= 3) {
-        let firstTwoChars = wordArray[i].slice(0, 2);
-        const restWord = wordArray[i].slice(2);
-        let boldChars = `<b style="font-weight: 600;">${firstTwoChars}</b>`;
-        const result = boldChars + restWord;
+        const word = wordArray[i];
+        const result = boldWords(2, word);
+
         resultArray.push(result);
       } else {
         resultArray.push(wordArray[i]);
