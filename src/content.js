@@ -9,7 +9,7 @@ function isBold(element) {
   );
 }
 
-const tags = ["P", "SIDE", "SPAN", "H3", "H4", "H5", "H6"];
+const tags = ["P", "SIDE", "SPAN", "H3", "H4", "H5", "H6", "LI"];
 
 function boldWords(sliceLength, word) {
   let slicedChars = word.slice(0, sliceLength);
@@ -23,12 +23,10 @@ for (let element of elements) {
   if (element.innerText && tags.includes(element.tagName) && !isBold(element)) {
     const wordArray = element.innerText.split(" ");
     let resultArray = [];
-
     for (let i = 0; i < wordArray.length; i++) {
       if (wordArray[i].length > 3) {
         const word = wordArray[i];
         const result = boldWords(3, word);
-
         resultArray.push(result);
       } else if (wordArray[i].length <= 3) {
         const word = wordArray[i];
@@ -39,7 +37,6 @@ for (let element of elements) {
         resultArray.push(wordArray[i]);
       }
     }
-
     const result = resultArray.join(" ");
     element.innerHTML = result;
   }
