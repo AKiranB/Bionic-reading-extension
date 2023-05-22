@@ -1,0 +1,13 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Bionic_Extension",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kiran Boyle",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.0.4"
+  }
+}
