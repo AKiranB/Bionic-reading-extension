@@ -8,6 +8,10 @@
   "author": "Kiran Boyle",
   "license": "ISC",
   "dependencies": {
+    "puppeteer": "^20.4.0",
     "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5"
   }
 }
