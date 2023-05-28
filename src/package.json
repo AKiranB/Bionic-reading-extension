@@ -8,10 +8,12 @@
   "author": "Kiran Boyle",
   "license": "ISC",
   "dependencies": {
+    "jest": "^29.5.0",
     "puppeteer": "^20.4.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.1",
     "@types/node": "^20.2.5"
   }
 }
