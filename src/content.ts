@@ -9,7 +9,7 @@ function isBold(element: HTMLElement): boolean {
   );
 }
 
-const tags: string[] = ["P", "SIDE", "SPAN", "H3", "H4", "H5", "H6", "LI"];
+const tags = ["P", "SIDE", "SPAN", "H3", "H4", "H5", "H6"];
 
 function boldWords(sliceLength: number, word: string): string {
   let slicedChars: string = word.slice(0, sliceLength);

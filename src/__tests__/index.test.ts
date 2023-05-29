@@ -1,19 +1,20 @@
-const puppeteer = require("puppeteer");
+import puppeteer from "puppeteer";
 
-test("Extension functionality", async () => {
+test("Are Correct Elements Bold", async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-
-  // Navigate to the website
   await page.goto("https://www.theguardian.com");
-
   await page.addScriptTag({ path: "./dist/content.js" });
 
-  // Wait for the page to load completely
-  const headings = await page.$$eval("h1, h2, h3, h4, h5, h6", (elements) =>
-    elements.map((element) => element.innerText)
+  const tags = await page.$$eval("h2", (elements: any) =>
+    elements.map((element) => {
+      return element.innerHTML;
+    })
   );
-  console.log(headings);
+  console.log(tags);
+
+  // console.log(headings);
+  // describe("Test each tag being correctly bolded", () => {});
 
   browser.close();
 });
