@@ -6,10 +6,12 @@ test("Are Correct Elements Bold", async () => {
   await page.goto("https://www.theguardian.com");
   await page.addScriptTag({ path: "./dist/content.js" });
 
-  const tags = await page.$$eval("h2", (elements: any) =>
-    elements.map((element) => {
-      return element.innerHTML;
-    })
+  const tags = await page.$$eval(
+    "h2, side, span, h3, h4, h5, h6, p",
+    (elements: any) =>
+      elements.map((element) => {
+        return element.innerHTML;
+      })
   );
   console.log(tags);
 
