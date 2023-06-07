@@ -1,5 +1,13 @@
 const elements: NodeListOf<HTMLElement> = document.querySelectorAll("body *");
 
+function boldWords(sliceLength: number, word: string): string {
+  let slicedChars: string = word.slice(0, sliceLength);
+  const restWord: string = word.slice(sliceLength);
+  let boldChars: string = `<b>${slicedChars}</b>`;
+  const result: string = boldChars + restWord;
+  return result;
+}
+
 function isBold(element: HTMLElement): boolean {
   const fontWeight: string = window.getComputedStyle(element).fontWeight;
   return (
@@ -10,14 +18,6 @@ function isBold(element: HTMLElement): boolean {
 }
 
 const tags = ["P", "SIDE", "SPAN", "H3", "H4", "H5", "H6"];
-
-function boldWords(sliceLength: number, word: string): string {
-  let slicedChars: string = word.slice(0, sliceLength);
-  const restWord: string = word.slice(sliceLength);
-  let boldChars: string = `<b style="font-weight: 600;">${slicedChars}</b>`;
-  const result: string = boldChars + restWord;
-  return result;
-}
 
 for (let element of elements) {
   if (element.innerText && tags.includes(element.tagName) && !isBold(element)) {

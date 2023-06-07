@@ -1,5 +1,12 @@
 "use strict";
 const elements = document.querySelectorAll("body *");
+function boldWords(sliceLength, word) {
+    let slicedChars = word.slice(0, sliceLength);
+    const restWord = word.slice(sliceLength);
+    let boldChars = `<b>${slicedChars}</b>`;
+    const result = boldChars + restWord;
+    return result;
+}
 function isBold(element) {
     const fontWeight = window.getComputedStyle(element).fontWeight;
     return (fontWeight === "bold" ||
@@ -7,13 +14,6 @@ function isBold(element) {
         parseInt(fontWeight, 10) >= 700);
 }
 const tags = ["P", "SIDE", "SPAN", "H3", "H4", "H5", "H6"];
-function boldWords(sliceLength, word) {
-    let slicedChars = word.slice(0, sliceLength);
-    const restWord = word.slice(sliceLength);
-    let boldChars = `<b style="font-weight: 600;">${slicedChars}</b>`;
-    const result = boldChars + restWord;
-    return result;
-}
 for (let element of elements) {
     if (element.innerText && tags.includes(element.tagName) && !isBold(element)) {
         const wordArray = element.innerText.split(" ");
