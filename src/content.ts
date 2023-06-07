@@ -1,5 +1,12 @@
-import { boldWords } from "./utils/index";
 const elements: NodeListOf<HTMLElement> = document.querySelectorAll("body *");
+
+function boldWords(sliceLength: number, word: string): string {
+  let slicedChars: string = word.slice(0, sliceLength);
+  const restWord: string = word.slice(sliceLength);
+  let boldChars: string = `<b>${slicedChars}</b>`;
+  const result: string = boldChars + restWord;
+  return result;
+}
 
 function isBold(element: HTMLElement): boolean {
   const fontWeight: string = window.getComputedStyle(element).fontWeight;
