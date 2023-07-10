@@ -12,8 +12,6 @@ test("Are Correct Elements Bold", async () => {
     })
   );
 
-  console.log(tags);
-
   const boldTag = "<b>";
   const closingBoldTag = "</b>";
 
